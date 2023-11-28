@@ -65,3 +65,30 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
 
 - @tailwindcss/line-clamp (plugin multiline truncation)
 
+### Eslint configuration - for auto sort the lines of code in which things imported
+
+1. install
+
+```
+    npm i eslint-plugin-simple-import-sort
+```
+
+2.  add rule in [eslint.cjs](.eslintrc.cjs)
+
+```
+    "simple-import-sort/imports": "error"
+```
+
+3. add simple-import-sort plogun in [eslint.cjs](.eslintrc.cjs)
+
+```
+    plugins: [..., "simple-import-sort"],
+```
+
+4. To enable auto-import-save on file save - configure -> settings.json
+
+```
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+```

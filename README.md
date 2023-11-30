@@ -97,4 +97,8 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
 
 1. [Store.js](src/Redux/store.js)
 
-2. 
+2. [AuthSlice.js](src/Redux/Slices/AuthSlice.js)
+
+3. provide store to Provider - [main.jsx](src/main.jsx)
+
+### 

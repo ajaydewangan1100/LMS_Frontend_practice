@@ -92,3 +92,9 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
     "source.fixAll.eslint": true
   }
 ```
+
+### Store created for state management
+
+1. [Store.js](src/Redux/store.js)
+
+2. 

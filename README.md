@@ -12,10 +12,10 @@
 
 [Tail wind official instruction doc](https://tailwindcss.com/docs/installation)
 
-1. Install tailwindcss
+1. Install tailwindcss and supported library
 
 ```
-    npm install -D tailwindcss
+    npm install -D tailwindcss postcss autoprefixer
 ```
 
 2. Create tailwind config file
@@ -27,6 +27,7 @@
 3. Add file extensions to tailwind config file in the contents property
 
 ```
+    "./index.html",
     "./src/**/*.{html,js,jsx,ts,tsx}"
 
 ```
@@ -93,6 +94,10 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
   }
 ```
 
+### setup - Toaster
+
+1. import and run `<Toaster />` as component just after `<App />` - [src/main.jsx](src/main.jsx)
+
 ### Store created for state management
 
 1. [Store.js](src/Redux/store.js)
@@ -101,4 +106,12 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
 
 3. provide store to Provider - [main.jsx](src/main.jsx)
 
-### 
+### axios instance
+
+1. [axiosInstance](src/Helpers/axiosInstance.js)
+
+### Starting create components
+
+1. Footer - [Footer](src/Components/Footer.jsx)
+
+2. 

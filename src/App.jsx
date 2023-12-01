@@ -1,12 +1,13 @@
-import './App.css'
+import "./App.css";
+
+import { Routes } from "react-router-dom";
+
+import Footer from "./Components/Footer";
 
 function App() {
-
   return (
-    <>
-    lms
-    </>
-  )
+    <>{/* <Routes><Route path="/" element={<Home />}></Route></Routes> */}</>
+  );
 }
 
-export default App
+export default App;

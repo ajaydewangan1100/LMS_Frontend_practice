@@ -40,6 +40,12 @@
     @tailwind utilities;
 ```
 
+5. Add the following details in plugin property of [tailwind.config.js](tailwind.config.js)
+
+```
+  plugins: [require("daisyui"), require("@tailwindcss/line-clamp")],
+```
+
 ### plugins and dependencies
 
 ```
@@ -110,8 +116,8 @@ npm install @reduxjs/toolkit react-redux react-router-dom react-icons react-char
 
 1. [axiosInstance](src/Helpers/axiosInstance.js)
 
-### Starting create components
+### Start creating components
 
 1. Footer - [Footer](src/Components/Footer.jsx)
 
-2. 
+2. Layout - (for common or different layout ) -

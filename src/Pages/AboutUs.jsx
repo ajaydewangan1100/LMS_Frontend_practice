@@ -1,9 +1,6 @@
 import aboutMainImage from "../Assets/images/aboutMainImage.png";
-import APJ from "../Assets/Images/QuotesPersonalityImage/apj.png";
-import BILLGATES from "../Assets/Images/QuotesPersonalityImage/billGates.png";
-import EINSTEIN from "../Assets/Images/QuotesPersonalityImage/einstein.png";
-import NELSONMANDELA from "../Assets/Images/QuotesPersonalityImage/nelsonMandela.png";
-import STEVEJOBS from "../Assets/Images/QuotesPersonalityImage/steveJobs.png";
+import CorouselSlide from "../Components/CorouselSlide";
+import { SLIDEDATA } from "../Constants/QuotesSlideData.js";
 import HomeLayout from "../Layouts/HomeLayout.jsx";
 
 function AboutUs() {
@@ -36,7 +33,15 @@ function AboutUs() {
 
         {/* coruosel div */}
         <div className="carousel w-2/3 m-auto my-10">
-          <div id="slide1" className="carousel-item relative w-fit px-20">
+          {SLIDEDATA &&
+            SLIDEDATA.map((slide) => (
+              <CorouselSlide
+                {...slide}
+                key={slide.slideNumber}
+                slideLength={SLIDEDATA.length}
+              />
+            ))}
+          {/* <div id="slide1" className="carousel-item relative w-fit px-20">
             <img
               src={APJ}
               className="w-40 h-40 my-auto border border-gray-700 rounded-full"
@@ -140,7 +145,7 @@ function AboutUs() {
                 ❯
               </a>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </HomeLayout>

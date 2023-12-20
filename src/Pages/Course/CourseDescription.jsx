@@ -9,9 +9,18 @@ function CourseDescription() {
 
   const { role, data } = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    // console.log(state);
+  }, []);
   return (
     <HomeLayout>
       <div className="min-h-[90vh] pt-12 px-2- flex flex-col items-center justify-center text-white">
+        <button
+          className="absolute top-20 right-16 border px-3 py-2 rounded hover:text-orange-400 duration-200 transition-all ease-in-out   "
+          onClick={() => navigate(-1)}
+        >
+          Go Back
+        </button>
         <div className="grid grid-cols-2 gap-10 py-10 relative">
           <div className="space-y-5 ">
             <img
@@ -49,7 +58,7 @@ function CourseDescription() {
             <h1 className="text-3xl font-bold text-yellow-500 mb-5 text-center">
               {state?.title}
             </h1>
-            <p className="text-yellow-500">Course Descrrption</p>
+            <p className="text-yellow-500">Course Description</p>
             <p className="">{state.description}</p>
           </div>
         </div>

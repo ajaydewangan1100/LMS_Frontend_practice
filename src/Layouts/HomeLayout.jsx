@@ -1,7 +1,7 @@
 import { AiFillCloseCircle } from "react-icons/ai";
 import { FiMenu } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import Footer from "../Components/Footer";
 import { logout } from "../Redux/Slices/AuthSlice.js";
@@ -9,6 +9,7 @@ import { logout } from "../Redux/Slices/AuthSlice.js";
 function HomeLayout({ children }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   //   for checking if user is loggedin
   const isLoggedIn = useSelector((state) => state?.auth?.isLoggedIn);
@@ -68,6 +69,11 @@ function HomeLayout({ children }) {
                 <Link to="/admin/dashboard">Admin Dashboard</Link>
               </li>
             )}
+            {isLoggedIn && role === "ADMIN" && (
+              <li>
+                <Link to="/course/create">Create new course</Link>
+              </li>
+            )}
             <li>
               <Link to="/courses">All Courses</Link>
             </li>
@@ -108,6 +114,14 @@ function HomeLayout({ children }) {
           </ul>
         </div>
       </div>
+      {location.pathname !== "/" && (
+        <button
+          onClick={() => navigate(-1)}
+          className="fixed z-51 border py-2 px-3 font-semibold rounded-md right-10 top-10 transition-all ease-in-out duration-300 text-yellow-600 hover:text-yellow-400 "
+        >
+          Go back
+        </button>
+      )}
 
       {children}
 

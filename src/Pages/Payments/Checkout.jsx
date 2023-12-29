@@ -102,6 +102,7 @@ function Checkout() {
             <button
               type="submit"
               className="bg-yellow-500 hover:bg-yellow-600 transition-all ease-in-out duration-300 absolute bottom-0 w-full left-0 text-xl font-bold rounded-bl-xl p-3"
+              disabled={razorpayKey && subscription_id ? false : true}
             >
               Buy Now
             </button>

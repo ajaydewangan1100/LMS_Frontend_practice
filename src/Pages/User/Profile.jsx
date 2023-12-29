@@ -2,11 +2,37 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { Link, useNavigate } from "react-router-dom";
+import { cancelCourseBundle } from "../../Redux/Slices/RazorpaySlice";
+import { getUserData } from "../../Redux/Slices/AuthSlice";
+import { toast } from "react-hot-toast";
 
 function Profile() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const userData = useSelector((state) => state?.auth?.data);
+
+  async function handleCancellation() {
+    const typedMail = prompt("Enter your email for cancel subscription");
+
+    if (typedMail === null) return;
+    if (typedMail === "") {
+      toast.error("Please enter mail for cancel subscription");
+      return;
+    }
+    if (typedMail !== userData.email) {
+      toast.error("Wrong mail entered!");
+      return;
+    }
+
+    const toastId = toast.loading("Initiating cancellation!");
+
+    await dispatch(cancelCourseBundle());
+    toast.dismiss(toastId);
+    await dispatch(getUserData());
+
+    toast.success("Cancellation completed");
+    // navigate("/");
+  }
 
   return (
     <HomeLayout>
@@ -48,8 +74,11 @@ function Profile() {
               <button>Edit profile</button>
             </Link>
           </div>
-          {userData?.subscription?.status !== "active" && (
-            <button className="w-full bg-red-600 hover:bg-red-500 py-1 transition-all ease-in-out duration-300">
+          {userData?.subscription?.status === "active" && (
+            <button
+              onClick={handleCancellation}
+              className="w-full bg-red-600 hover:bg-red-500 py-2 transition-all ease-in-out duration-300"
+            >
               Cancel subscription
             </button>
           )}

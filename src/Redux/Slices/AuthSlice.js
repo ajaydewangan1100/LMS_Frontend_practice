@@ -7,7 +7,7 @@ const initialState = {
   isLoggedIn: localStorage.getItem("isLoggedIn") || false,
   role: localStorage.getItem("role") || "",
   data:
-    localStorage.getItem("data") != undefined
+    localStorage.getItem("data") !== "undefined"
       ? JSON.parse(localStorage.getItem("data"))
       : {},
 };

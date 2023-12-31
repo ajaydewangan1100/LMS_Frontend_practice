@@ -30,7 +30,7 @@ function Displaylectures() {
         <div className="text-2xl text-center font-semibold text-yellow-500">
           Course name : {state.title}{" "}
         </div>
-        {lectures && !lectures.length > 0 ? (
+        {lectures && lectures.length > 0 ? (
           <div className="flex justify-center gap-10 w-full">
             {/* Left section for playing videos and displaying course details to admin*/}
             <div className="space-y-5 w-[28rem] p-2 rounded-lg shadow-[0_0_10px_black]">
@@ -63,7 +63,7 @@ function Displaylectures() {
                 {role === "ADMIN" && (
                   <button
                     onClick={() =>
-                      navigate("/course/addLecture", { state: { ...state } })
+                      navigate("/course/addlecture", { state: { ...state } })
                     }
                     className="btn-primary px-2 py-1 rounded-md font-semibold text-sm"
                   >
@@ -98,7 +98,19 @@ function Displaylectures() {
             </ul>
           </div>
         ) : (
-          <div>
+          <div className="flex flex-col items-center justify-center gap-4">
+            <div className="font-semibold text-xl text-yellow-500 flex items-center justify-between">
+              {role === "ADMIN" && (
+                <button
+                  onClick={() =>
+                    navigate("/course/addlecture", { state: { ...state } })
+                  }
+                  className="btn-primary px-2 py-1 rounded-md font-semibold text-sm"
+                >
+                  Add new Lecture
+                </button>
+              )}
+            </div>
             <h2 className="font-semibold">
               No lectures given under this course.
             </h2>

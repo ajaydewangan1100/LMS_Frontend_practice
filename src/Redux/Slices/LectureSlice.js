@@ -31,8 +31,9 @@ export const addCourseLecture = createAsyncThunk(
       formData.append("lecture", data.lecture);
       formData.append("title", data.title);
       formData.append("description", data.description);
+      console.log(formData.entries().next());
 
-      const res = axiosInstance.get(`/courses/${data.id}`, formData);
+      const res = axiosInstance.post(`/courses/${data.id}`, formData);
       toast.promise(res, {
         loading: "Adding course lectures",
         success: "Lectures added succeffai",
@@ -40,7 +41,7 @@ export const addCourseLecture = createAsyncThunk(
       });
       return (await res).data;
     } catch (error) {
-      toast.error("error?.response?.data?.massage");
+      toast.error(error?.response?.data?.massage);
     }
   }
 );

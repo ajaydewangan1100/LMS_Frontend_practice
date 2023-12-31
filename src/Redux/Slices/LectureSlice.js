@@ -13,7 +13,7 @@ export const getCourseLectures = createAsyncThunk(
       const res = axiosInstance.get(`/courses/${cid}`);
       toast.promise(res, {
         loading: "Fetching course lectures",
-        success: "Lectures fetchged succeffai",
+        success: "Lectures fetched successfully",
         error: "Failed to load the lecture",
       });
       return (await res).data;
@@ -71,7 +71,6 @@ const lectureSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(getCourseLectures.fulfilled, (state, action) => {
-        console.log(action);
         state.lectures = action?.payload?.lectures;
       })
       .addCase(addCourseLecture.fulfilled, (state, action) => {

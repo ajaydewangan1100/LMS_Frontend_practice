@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import HomeLayout from "../../Layouts/HomeLayout";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { getCourseLectures } from "../../Redux/Slices/LectureSlice";
+import {
+  deleteCourseLecture,
+  getCourseLectures,
+} from "../../Redux/Slices/LectureSlice";
 
 function Displaylectures() {
   const navigate = useNavigate();
@@ -14,9 +17,10 @@ function Displaylectures() {
   const [currentVideo, setCurrentVideo] = useState(0);
 
   async function onLectureDelete(courseId, lectureId) {
-    console.log(courseId, lectureId);
-    await dispatch(deleteCourseLecture(courseId, lectureId));
-    await dispatch(getCourseLectures(courseId));
+    const cnfrm = confirm("Are you sure, you want to delete this lecture?");
+    const data = { courseId, lectureId };
+    const { payload } = cnfrm && (await dispatch(deleteCourseLecture(data)));
+    payload?.success && (await dispatch(getCourseLectures(courseId)));
   }
 
   useEffect(() => {
@@ -85,7 +89,7 @@ function Displaylectures() {
                       {role === "ADMIN" && (
                         <button
                           onClick={() =>
-                            onLectureDelete(state?._id, lecture.id)
+                            onLectureDelete(state?._id, lecture._id)
                           }
                           className="btn-accent px-2 py-1 rounded-md font-semibold text-sm"
                         >

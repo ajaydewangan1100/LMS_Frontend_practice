@@ -6,7 +6,7 @@ import HomeLayout from "../../Layouts/HomeLayout.jsx";
 import CourseCard from "../../Components/CourseCard";
 
 function CourseList() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
 
   const { courseData } = useSelector((state) => state.course);
 

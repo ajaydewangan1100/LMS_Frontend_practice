@@ -40,12 +40,28 @@ export const createNewCourse = createAsyncThunk(
         error: "Failed to create course!",
       });
 
-      return (await res).data
+      return (await res).data;
     } catch (error) {
       toast.error(error?.response?.data?.message);
     }
   }
 );
+
+export const deleteCourse = createAsyncThunk("/course/delete", async (id) => {
+  try {
+    const res = axiosInstance.delete(`/courses/${id}`);
+
+    toast.promise(res, {
+      loading: "Deleting course...",
+      success: "Courses deleted successfully",
+      error: "Failed to delete!",
+    });
+
+    return (await res).data;
+  } catch (error) {
+    toast.error(error?.response?.data?.message);
+  }
+});
 
 const courseSlice = createSlice({
   name: "courses",

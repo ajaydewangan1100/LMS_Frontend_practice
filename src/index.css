@@ -2,8 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+html, body {
+  background-color: rgb(52, 52, 52);
+}
 body {
   margin: auto;
-  max-width: 1440px;
+  max-width: 1540px;
+  padding: 0 20px;
   position: relative;
 }

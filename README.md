@@ -1,4 +1,4 @@
-# LMS Frontend - [LMS App](https://youtube-clone-khaki-seven.vercel.app/)
+# LMS Frontend - [LMS App](https://course-man.vercel.app/)
 
 ### Used vite
 

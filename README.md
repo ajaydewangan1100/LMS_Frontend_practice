@@ -1,4 +1,4 @@
-# LMS Frontend - [LMS App](https://course-man.vercel.app/)
+# LMS Frontend 
 
 ### Used vite
 
